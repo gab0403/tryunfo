@@ -9,7 +9,6 @@ class App extends React.Component {
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.validateForm = this.validateForm.bind(this);
-    this.addNewCard = this.addNewCard.bind(this);
     this.state = {
       cardName: '',
       cardDescription: '',
@@ -71,10 +70,6 @@ class App extends React.Component {
     }
   }
 
-  addNewTopic(topic) {
-    this.setState((prevState) => ({ topics: [...prevState.topics, topic] }));
-  }
-
   render() {
     const {
       cardName,
@@ -102,7 +97,6 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.onSaveButtonClick }
-          addNewCard={ this.addNewCard }
         />
         <Card
           onInputChange={ this.onInputChange }
