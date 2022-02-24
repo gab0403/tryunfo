@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import './index.css';
+import Card from './components/Card';
 
 class App extends React.Component {
   constructor() {
@@ -16,7 +17,7 @@ class App extends React.Component {
       cardImage: '',
       cardRare: '',
       cardTrunfo: 'false',
-      hasTrunfo: 'false',
+      // hasTrunfo: 'false',
       isSaveButtonDisabled: 'false',
     };
   }
@@ -31,41 +32,52 @@ class App extends React.Component {
 
   onSaveButtonClick(e) {
     e.preventDefault();
-    addNewTopic(this.state);
-    this.setState({
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
-      cardImage: '',
-      cardRare: '',
-      cardTrunfo: 'false',
-      hasTrunfo: 'false',
-      isSaveButtonDisabled: 'false',
-    });
   }
 
   render() {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      isSaveButtonDisabled,
+    } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
-        <Form />
+        <Form
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardImage={ cardImage }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
+          onInputChange={ this.onInputChange }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={ this.onSaveButtonClick }
+        />
+        <Card
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardImage={ cardImage }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
+          /* onInputChange={ this.onInputChange }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={ this.onSaveButtonClick } */
+        />
       </div>
     );
   }
 }
-
-App.defaultProps = {
-  cardName: '',
-  cardDescription: '',
-  cardAttr1: '',
-  cardAttr2: '',
-  cardAttr3: '',
-  cardImage: '',
-  cardRare: '',
-  cardTrunfo: 'false',
-  isSaveButtonDisabled: 'false',
-};
 
 export default App;
