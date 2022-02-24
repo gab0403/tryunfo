@@ -30,8 +30,8 @@ class App extends React.Component {
     this.setState({ [name]: value }, () => this.validateForm());
   }
 
-  onSaveButtonClick(e) {
-    e.preventDefault();
+  onSaveButtonClick(event) {
+    event.preventDefault();
   }
 
   validateForm() {
