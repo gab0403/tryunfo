@@ -100,14 +100,14 @@ class Form extends React.Component {
           >
             <option value="normal">Normal </option>
             <option value="raro">Raro </option>
-            <option value="muito raro">Super Raro </option>
+            <option value="muito raro">Muito Raro </option>
           </select>
         </label>
 
-        <label htmlFor="cardTrunfo">
+        <label htmlFor="card-trunfo">
           Super Trunfo
           <input
-            id="cardTrunfo"
+            id="card-trunfo"
             data-testid="trunfo-input"
             type="checkbox"
             name="cardTrunfo"
@@ -143,5 +143,9 @@ Form.propTypes = {
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
 };
+/* Form.defaultProps = {
+  cardTrunfo: false,
+  isSaveButtonDisabled: true,
+}; */
 
 export default Form;

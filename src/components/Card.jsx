@@ -34,7 +34,7 @@ class Card extends React.Component {
         <h1 data-testid="rare-card">
           { cardRare }
         </h1>
-        {cardTrunfo ? <p data-testid="trunfo-card">Super Trunfo</p> : <p> </p>}
+        <div>{cardTrunfo ? <p data-testid="trunfo-card">Super Trunfo</p> : <p> </p>}</div>
       </div>
     );
   }
@@ -50,5 +50,9 @@ Card.propTypes = {
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
 };
+
+/* Card.defaultProps = {
+  cardTrunfo: false,
+}; */
 
 export default Card;

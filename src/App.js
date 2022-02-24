@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
-import './index.css';
 import Card from './components/Card';
+import './index.css';
 
 class App extends React.Component {
   constructor() {
@@ -16,9 +16,9 @@ class App extends React.Component {
       cardAttr3: '',
       cardImage: '',
       cardRare: '',
-      cardTrunfo: 'false',
-      // hasTrunfo: 'false',
-      isSaveButtonDisabled: 'false',
+      cardTrunfo: false,
+      // hasTrunfo: false,
+      isSaveButtonDisabled: true,
     };
   }
 
@@ -50,6 +50,7 @@ class App extends React.Component {
       <div>
         <h1>Tryunfo</h1>
         <Form
+          onInputChange={ this.onInputChange }
           cardName={ cardName }
           cardDescription={ cardDescription }
           cardAttr1={ cardAttr1 }
@@ -58,11 +59,11 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
-          onInputChange={ this.onInputChange }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card
+          onInputChange={ this.onInputChange }
           cardName={ cardName }
           cardDescription={ cardDescription }
           cardAttr1={ cardAttr1 }
@@ -71,9 +72,7 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
-          /* onInputChange={ this.onInputChange }
           isSaveButtonDisabled={ isSaveButtonDisabled }
-          onSaveButtonClick={ this.onSaveButtonClick } */
         />
       </div>
     );
