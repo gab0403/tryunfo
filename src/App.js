@@ -9,6 +9,7 @@ class App extends React.Component {
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.validateForm = this.validateForm.bind(this);
+    this.cardDelete = this.cardDelete.bind(this);
     this.state = {
       cardName: '',
       cardDescription: '',
@@ -20,16 +21,18 @@ class App extends React.Component {
       cardTrunfo: false,
       // hasTrunfo: false,
       isSaveButtonDisabled: true,
-      elementCard: [],
+      tryunfo: [],
     };
   }
 
   onInputChange({ target }) {
     const { name } = target;
+    /*  const check =({ cardTrunfo } === target.checked) ? { hasTrunfo }
+       */
     const value = (target.type === 'checkbox') ? target.checked : target.value;
-
     this.setState({ [name]: value }, () => this.validateForm());
   }
+  // }
 
   onSaveButtonClick(e) {
     e.preventDefault();
@@ -54,7 +57,7 @@ class App extends React.Component {
       cardTrunfo,
     };
     this.setState((previous) => ({
-      elementCard: [...previous.elementCard, addNewCard],
+      tryunfo: [...previous.tryunfo, addNewCard],
     }));
     this.setState(() => ({
       cardName: '',
@@ -105,6 +108,14 @@ class App extends React.Component {
     }
   }
 
+  cardDelete({ target }) {
+    const { tryunfo } = this.state;
+    const deleteCard = tryunfo.filter(({ cardName }) => target.name !== cardName);
+    this.setState({
+      tryunfo: deleteCard,
+    });
+  }
+
   render() {
     const {
       cardName,
@@ -116,6 +127,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       isSaveButtonDisabled,
+      tryunfo,
     } = this.state;
     return (
       <div>
@@ -145,9 +157,26 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
         />
+        <section>
+          {
+            tryunfo
+              .map((card) => (
+                <div key={ card.cardName }>
+                  <Card key={ card.cardName } { ...card } />
+                  <button
+                    data-testid="delete-button"
+                    type="button"
+                    name={ card.cardName }
+                    onClick={ this.cardDelete }
+                  >
+                    Excluir
+                  </button>
+                </div>))
+          }
+        </section>
+
       </div>
     );
   }
 }
-
 export default App;
