@@ -14,27 +14,29 @@ class Card extends React.Component {
       cardTrunfo,
     } = this.props;
     return (
-      <div>
-        <h1 data-testid="name-card">
-          { cardName }
-        </h1>
-        <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-        <p data-testid="description-card">
-          { cardDescription }
-        </p>
-        <h1 data-testid="attr1-card">
-          { cardAttr1 }
-        </h1>
-        <h1 data-testid="attr2-card">
-          { cardAttr2 }
-        </h1>
-        <h1 data-testid="attr3-card">
-          { cardAttr3 }
-        </h1>
-        <h1 data-testid="rare-card">
-          { cardRare }
-        </h1>
-        <div>{cardTrunfo ? <p data-testid="trunfo-card">Super Trunfo</p> : <p> </p>}</div>
+      <div className="preview">
+        <div className="card">
+          <h1 data-testid="name-card">
+            { cardName }
+          </h1>
+          <img data-testid="image-card" src={ cardImage } alt={ cardName } />
+          <p data-testid="description-card">
+            { cardDescription }
+          </p>
+          <h3 data-testid="attr1-card">
+            { cardAttr1 }
+          </h3>
+          <h3 data-testid="attr2-card">
+            { cardAttr2 }
+          </h3>
+          <h3 data-testid="attr3-card">
+            { cardAttr3 }
+          </h3>
+          <h3 data-testid="rare-card">
+            { cardRare }
+          </h3>
+          {cardTrunfo ? <p data-testid="trunfo-card">Super Trunfo</p> : <p> </p>}
+        </div>
       </div>
     );
   }
@@ -50,9 +52,5 @@ Card.propTypes = {
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
 };
-
-/* Card.defaultProps = {
-  cardTrunfo: false,
-}; */
 
 export default Card;

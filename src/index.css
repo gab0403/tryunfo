@@ -1,7 +1,56 @@
+ body {
+  background-image: url(/src/components/arte-digital-roxos-claro-lilas-imagem-de-fundo.jpg);
+  background-size: cover;
+}
+
 form {
   display: flex;
-  flex-direction: column;
-  width: 50%;
+  flex-direction: column; 
+  background-color: pink;
+  border: 1px solid blueviolet;
+  border-radius: 10px;
+  width: 500px;
+  height: 600px;
+  align-self: center;
+  color: white
+} 
+
+.conteiner-card {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-evenly;
+}
+
+.card img {
+  width: 200px;
+  border-radius: 15px;
+}
+
+.title {
+ margin-left: 10px;
+ color:cornsilk;
+}
+
+.preview {
+  display: flex;
   padding: 50px;
-  border: 15px solid black;
+}
+
+.card {
+  background-color: #bdb2ff;
+  border: 1px solid blueviolet;
+  border-radius: 10px;
+  width: 500px;
+  height: 600px;
+  align-self: center; 
+  color: white
+}
+
+button {
+  padding: 15px;
+  padding-top: 5px;
+  width: 70px;
+  height: 30px;
+  margin:10px;
+  border-radius: 10px;
 }
