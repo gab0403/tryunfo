@@ -2,6 +2,7 @@ import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 import './index.css';
+import Filters from './components/Filters';
 
 class App extends React.Component {
   constructor() {
@@ -24,6 +25,9 @@ class App extends React.Component {
       hasTrunfo: false,
       isSaveButtonDisabled: true,
       tryunfo: [],
+      filterName: '',
+      filterRare: 'todas',
+      filterTrunfo: false,
     };
   }
 
@@ -142,6 +146,9 @@ class App extends React.Component {
       hasTrunfo,
       isSaveButtonDisabled,
       tryunfo,
+      filterName,
+      filterRare,
+      filterTrunfo,
     } = this.state;
     return (
       <div>
@@ -151,7 +158,6 @@ class App extends React.Component {
         </div>
         <section className="conteiner-card">
           <Form
-            onInputChange={ this.onInputChange }
             cardName={ cardName }
             cardDescription={ cardDescription }
             cardAttr1={ cardAttr1 }
@@ -163,9 +169,9 @@ class App extends React.Component {
             hasTrunfo={ hasTrunfo }
             isSaveButtonDisabled={ isSaveButtonDisabled }
             onSaveButtonClick={ this.onSaveButtonClick }
+            onInputChange={ this.onInputChange }
           />
           <Card
-            onInputChange={ this.onInputChange }
             cardName={ cardName }
             cardDescription={ cardDescription }
             cardAttr1={ cardAttr1 }
@@ -175,11 +181,27 @@ class App extends React.Component {
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo }
             isSaveButtonDisabled={ isSaveButtonDisabled }
+            onInputChange={ this.onInputChange }
+          />
+        </section>
+        <section>
+          <Filters
+            filterName={ filterName }
+            filterRare={ filterRare }
+            filterTrunfo={ filterTrunfo }
+            onInputChange={ this.onInputChange }
           />
         </section>
         <section>
           {
             tryunfo
+              .filter((card) => card.cardName.includes(filterName))
+              .filter((card) => card.cardRare === filterRare
+                || filterRare === 'todas')
+              .filter((card) => {
+                if (filterTrunfo) return card.cardTrunfo;
+                return true;
+              })
               .map((card) => (
                 <div key={ card.cardName }>
                   <Card key={ card.cardName } { ...card } />
