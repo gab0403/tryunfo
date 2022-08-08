@@ -54,3 +54,21 @@ button {
   margin:10px;
   border-radius: 10px;
 }
+
+input {
+  padding: 15px;
+  padding-top: 5px;
+  width: 200px;
+  height: 20px;
+  margin:10px;
+  border-radius: 10px;
+}
+
+select {
+  padding: 15px;
+  padding-top: 5px;
+  width: 200px;
+  height: 20px;
+  margin:10px;
+  border-radius: 10px;
+}
