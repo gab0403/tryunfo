@@ -1,6 +1,6 @@
 # Projeto Tryunfo
 
-## Foram desenvolvidas as habilidades de
+## Foram desenvolvidas as habilidades de:
 
   * Ler o estado de um componente e usá-lo para alterar o que exibimos no browser;
 
